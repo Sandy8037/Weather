@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="WeatherApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather App</title>
+  </head>
+  <body>
+    <h1>Weather App</h1>
+    <div ng-controller="WeatherAppController as setPin">
+      <input type="text" placeholder="Enter Zipcode" ng-model="setPin.zipCode">
+      <button ng-click="setPin.getPin();">Get Weather</button>
+    </div>
+    <!-- <div ng-controller="WeatherDataController as getWeather">
+      <h1>{{getWeather.temperature}}</h1>
+    </div> -->
+    <script src="src/angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
