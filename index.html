@@ -3,17 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <h1>Weather App</h1>
     <div ng-controller="WeatherAppController as setPin">
-      <input type="text" placeholder="Enter Zipcode" ng-model="setPin.zipCode">
-      <button ng-click="setPin.getPin();">Get Weather</button>
-      <div ng-if="setPin.temperature">
-        <h2>City: {{setPin.city}}</h2>
-        <h2>State: {{setPin.state}}</h2>
-        <h2>Current temperature: {{setPin.temperature}} F</h2>
-      </div>
+      <form name="require" novalidate>
+        <input name="zipcode" type="text" placeholder="Enter Zipcode" ng-model=
+        "setPin.zipCode" required minlength="5">
+        <button ng-click="setPin.getPin();" ng-disabled="require.$invalid">Get Weather</button>
+        <span class="red" ng-if="(require.zipcode.$error.required ||require.zipcode.$error.minlength) && require.zipcode.$touched">
+          Zip code must be 5 characters long</span>
+        <div ng-if="setPin.temperature">
+          <h2>City: {{setPin.city}}</h2>
+          <h2>State: {{setPin.state}}</h2>
+          <h2>Current temperature: {{setPin.temperature}} F</h2>
+        </div>
+      </form>
     </div>
     <script src="src/angular.min.js" charset="utf-8"></script>
     <script src="app.js" charset="utf-8"></script>
