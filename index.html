@@ -9,10 +9,12 @@
     <div ng-controller="WeatherAppController as setPin">
       <input type="text" placeholder="Enter Zipcode" ng-model="setPin.zipCode">
       <button ng-click="setPin.getPin();">Get Weather</button>
+      <div ng-if="setPin.temperature">
+        <h2>City: {{setPin.city}}</h2>
+        <h2>State: {{setPin.state}}</h2>
+        <h2>Current temperature: {{setPin.temperature}} F</h2>
+      </div>
     </div>
-    <!-- <div ng-controller="WeatherDataController as getWeather">
-      <h1>{{getWeather.temperature}}</h1>
-    </div> -->
     <script src="src/angular.min.js" charset="utf-8"></script>
     <script src="app.js" charset="utf-8"></script>
   </body>
