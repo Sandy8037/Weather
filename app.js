@@ -46,7 +46,7 @@ function WeatherAppService($http) {
   service.getPin = function (zipCode, apiKey) {
     var response = $http({
       method: "GET",
-      url: "http://api.wunderground.com/api/" + apiKey + "/geolookup/q/" + zipCode + ".json"
+      url: "https://api.wunderground.com/api/" + apiKey + "/geolookup/q/" + zipCode + ".json"
     });
 
     return response;
@@ -55,7 +55,7 @@ function WeatherAppService($http) {
   service.getTemp = function (apiKey, city, state) {
     var response = $http({
       method: "GET",
-      url: "http://api.wunderground.com/api/" + apiKey + "/conditions/q/" + state + "/" + city + ".json"
+      url: "https://api.wunderground.com/api/" + apiKey + "/conditions/q/" + state + "/" + city + ".json"
     });
 
     return response;
